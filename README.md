@@ -38,6 +38,18 @@ cd demo_package/
 devpi upload --no-vcs
 ```
 
+test REST API:
+
+```
+$ curl -v -H "Accept: application/json" http://localhost:5001/root/demo/demo-package
+```
+
+URL is constructed like this:
+
+```
+/<user>/<namespace>/<project>
+```
+
 ### notes
 
  * anitya doesn't harvest package metadata (we would have to write this ourself)
