@@ -42,5 +42,8 @@ devpi upload --no-vcs
 
  * anitya doesn't harvest package metadata (we would have to write this ourself)
  * anitya uses probably cron for scheduling (that's what upstream [has](https://github.com/fedora-infra/anitya/blob/master/files/anitya_cron.py))
+  * we need to poll very likely
  * once a new release is found, anitya posts a message to fedmsg and [new-hotness](https://github.com/fedora-infra/the-new-hotness/) picks it up and processes it
   * will pipeline have message bus?
+ * anitya has support for vast amount of backends (npm, PyPI, maven, ruby, cpan, github, ...)
+
