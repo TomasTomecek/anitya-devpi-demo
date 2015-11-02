@@ -28,7 +28,7 @@ And create index:
 
 ```
 devpi index -c demo
-devpi use dev
+devpi use demo
 ```
 
 We are all set to upload our package:
@@ -37,3 +37,10 @@ We are all set to upload our package:
 cd demo_package/
 devpi upload --no-vcs
 ```
+
+### notes
+
+ * anitya doesn't harvest package metadata (we would have to write this ourself)
+ * anitya uses probably cron for scheduling (that's what upstream [has](https://github.com/fedora-infra/anitya/blob/master/files/anitya_cron.py))
+ * once a new release is found, anitya posts a message to fedmsg and [new-hotness](https://github.com/fedora-infra/the-new-hotness/) picks it up and processes it
+  * will pipeline have message bus?
