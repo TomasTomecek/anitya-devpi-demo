@@ -1,4 +1,15 @@
-# anitya and devpi
+# Notes
+
+ * anitya doesn't harvest package metadata (we would have to write this ourself)
+ * anitya uses probably cron for scheduling (that's what upstream [has](https://github.com/fedora-infra/anitya/blob/master/files/anitya_cron.py))
+  * we need to poll very likely
+ * once a new release is found, anitya posts a message to fedmsg and [new-hotness](https://github.com/fedora-infra/the-new-hotness/) picks it up and processes it
+  * will pipeline have message bus?
+  * we can write our own fedmsg consumer which will forward messages about new releases
+ * anitya has support for vast amount of backends (npm, PyPI, maven, ruby, cpan, github, ...)
+
+
+# Demo
 
 Let's try a proof of concept where we try to release a package to our locally running devpi and let anitya to pick up the release.
 
@@ -49,13 +60,4 @@ URL is constructed like this:
 ```
 /<user>/<namespace>/<project>
 ```
-
-### notes
-
- * anitya doesn't harvest package metadata (we would have to write this ourself)
- * anitya uses probably cron for scheduling (that's what upstream [has](https://github.com/fedora-infra/anitya/blob/master/files/anitya_cron.py))
-  * we need to poll very likely
- * once a new release is found, anitya posts a message to fedmsg and [new-hotness](https://github.com/fedora-infra/the-new-hotness/) picks it up and processes it
-  * will pipeline have message bus?
- * anitya has support for vast amount of backends (npm, PyPI, maven, ruby, cpan, github, ...)
 
